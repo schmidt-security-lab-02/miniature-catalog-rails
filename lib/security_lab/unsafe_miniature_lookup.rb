@@ -1,18 +1,16 @@
-# Intentionally unsafe example for comparing CodeQL configuration scopes.
-# This controller has no route and must not be connected to the application.
-# SQL values in real application code must use bound parameters.
+# Remediated examples from the CodeQL configuration scope demonstration.
+# This controller remains isolated and has no application route.
 module SecurityLab
   class UnsafeMiniatureLookup < ActionController::Base
     def show
-      requested_name = params[:name]
-      matches = Miniature.where("name = '#{requested_name}'")
+      requested_name = params[:name].to_s
+      matches = Miniature.where(name: requested_name)
       render json: matches
     end
 
-    # Intentionally unsafe: untrusted HTML must be escaped in real views.
-    # This action has no route and exists only for the CodeQL demonstration.
+    # Escape untrusted text before rendering it in an HTML response.
     def preview
-      render html: params[:description].to_s.html_safe
+      render html: ERB::Util.html_escape(params[:description].to_s)
     end
   end
 end
