@@ -1,0 +1,9 @@
+en:
+  activerecord:
+    attributes:
+      miniature:
+        painting_status: "Painting status"
+    errors:
+      messages:
+        restrict_dependent_destroy:
+          has_many: "This category still has associated miniatures"

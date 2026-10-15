@@ -1,14 +1,14 @@
-<section class="hero"><p class="eyebrow">SUA COLEÇÃO EM ORDEM</p><h1>Pequenas peças.<br>Grandes universos.</h1><p>Encontre cada miniatura e acompanhe o que ainda está na bancada.</p><span class="badge"><%= @total %> modelos cadastrados</span></section>
+<section class="hero"><p class="eyebrow">YOUR COLLECTION IN ORDER</p><h1>Small pieces.<br>Endless worlds.</h1><p>Find every miniature and keep track of what is still on your workbench.</p><span class="badge"><%= @total %> models in your collection</span></section>
 <%= form_with url: miniatures_path, method: :get, class: "filters" do |form| %>
-  <label>Buscar<%= form.search_field :q, value: @query, placeholder: "Nome, fabricante ou universo", maxlength: 100 %></label>
-  <label>Categoria<%= form.collection_select :category_id, @categories, :id, :name, { include_blank: "Todas", selected: params[:category_id] } %></label>
-  <label>Pintura<%= form.select :painting_status, Miniature::STATUSES.map { |value, label| [label, value] }, { include_blank: "Todos", selected: params[:painting_status] } %></label>
-  <%= form.submit "Filtrar", class: "button" %>
+  <label>Search<%= form.search_field :q, value: @query, placeholder: "Name, manufacturer, or universe", maxlength: 100 %></label>
+  <label>Category<%= form.collection_select :category_id, @categories, :id, :name, { include_blank: "All categories", selected: params[:category_id] } %></label>
+  <label>Painting<%= form.select :painting_status, Miniature::STATUSES.map { |value, label| [label, value] }, { include_blank: "All statuses", selected: params[:painting_status] } %></label>
+  <%= form.submit "Filter", class: "button" %>
 <% end %>
-<section class="grid" aria-label="Miniaturas">
+<section class="grid" aria-label="Miniatures">
   <% @miniatures.each do |miniature| %>
-    <article class="card"><div class="piece" aria-hidden="true">◈</div><span class="badge"><%= miniature.category.name %></span><h2><%= link_to miniature.name, miniature %></h2><p><%= [miniature.manufacturer, miniature.universe].reject(&:blank?).join(" · ") %></p><div class="card-meta"><span>Escala <%= miniature.scale.presence || "—" %></span><span><%= miniature.status_label %></span></div></article>
+    <article class="card"><div class="piece" aria-hidden="true">◈</div><span class="badge"><%= miniature.category.name %></span><h2><%= link_to miniature.name, miniature %></h2><p><%= [miniature.manufacturer, miniature.universe].reject(&:blank?).join(" · ") %></p><div class="card-meta"><span>Scale <%= miniature.scale.presence || "—" %></span><span><%= miniature.status_label %></span></div></article>
   <% end %>
 </section>
-<% if @miniatures.empty? %><section class="empty"><h2>Nenhuma miniatura encontrada</h2><p>Ajuste os filtros ou cadastre a primeira peça da coleção.</p></section><% end %>
-<p class="muted">Exibição limitada a 100 resultados por consulta.</p>
+<% if @miniatures.empty? %><section class="empty"><h2>No miniatures found</h2><p>Adjust the filters or add the first piece to your collection.</p></section><% end %>
+<p class="muted">Up to 100 results are displayed per search.</p>

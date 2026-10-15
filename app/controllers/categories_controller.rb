@@ -14,7 +14,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
-      redirect_to categories_path, notice: "Categoria criada."
+      redirect_to categories_path, notice: "Category created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -22,7 +22,7 @@ class CategoriesController < ApplicationController
 
   def update
     if @category.update(category_params)
-      redirect_to categories_path, notice: "Categoria atualizada."
+      redirect_to categories_path, notice: "Category updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -30,9 +30,9 @@ class CategoriesController < ApplicationController
 
   def destroy
     if @category.destroy
-      redirect_to categories_path, notice: "Categoria removida.", status: :see_other
+      redirect_to categories_path, notice: "Category removed.", status: :see_other
     else
-      redirect_to categories_path, alert: "Mova as miniaturas desta categoria antes de removê-la."
+      redirect_to categories_path, alert: "Move this category’s miniatures before deleting it."
     end
   end
 

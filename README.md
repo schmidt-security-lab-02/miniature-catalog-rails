@@ -1,18 +1,18 @@
-# Catálogo de miniaturas
+# Miniature Catalog
 
-Aplicação Ruby on Rails para organizar uma coleção de miniaturas por categoria, fabricante, universo, escala e progresso de pintura. Interface em português e banco SQLite.
+A Ruby on Rails application for organizing a miniature collection by category, manufacturer, universe, scale, and painting progress. The interface and sample data are in English. Data is stored in SQLite.
 
-## Funcionalidades
+## Features
 
-- Listagem, busca e filtros por categoria e pintura.
-- Cadastro, edição e remoção de miniaturas e categorias.
-- Contagem da coleção e quantidades por modelo.
-- Edição protegida por HTTP Basic com credenciais fornecidas pelo ambiente.
-- Dados fictícios para explorar o catálogo.
+- Browse and search miniatures; filter by category and painting status.
+- Create, edit, and delete miniatures and categories.
+- Track collection totals and quantities for each model.
+- Protect editing with HTTP Basic credentials supplied through the environment.
+- Explore the catalog using fictional sample records.
 
-## Executar localmente
+## Run locally
 
-Requisitos: Ruby 3.2 ou superior (linha 3.x), Bundler e suporte a SQLite. A dependência principal é Rails 8.1.4 ou patch compatível.
+Requirements: Ruby 3.2 or newer in the 3.x series, Bundler, and SQLite support. The main dependency is Rails 8.1.4 or a compatible patch release.
 
 ```sh
 bundle install
@@ -21,22 +21,22 @@ bundle exec rails db:seed
 bundle exec rails server
 ```
 
-Abra http://localhost:3000. A consulta funciona sem login. Para habilitar a edição, defina `CATALOG_EDITOR_USER` e `CATALOG_EDITOR_PASSWORD` no ambiente do processo antes de iniciar o servidor. Use uma senha própria; nenhuma credencial é incluída no repositório. `.env.example` documenta os nomes e não é carregado automaticamente.
+Open http://localhost:3000. Browsing does not require signing in. To enable editing, set `CATALOG_EDITOR_USER` and `CATALOG_EDITOR_PASSWORD` in the server process environment before starting it. Choose your own password; no credentials are included in this repository. `.env.example` documents the variable names and is not loaded automatically.
 
-O banco local fica em `storage/development.sqlite3` e não é versionado. Categorias com miniaturas vinculadas não podem ser removidas. A lista apresenta no máximo 100 resultados por consulta.
+The local database is stored in `storage/development.sqlite3` and is not tracked by Git. Categories with associated miniatures cannot be deleted. Each search displays up to 100 results.
 
-## Estrutura
+## Project structure
 
-- `app/models`: Category e Miniature com validações.
-- `app/controllers`: operações e filtros com parâmetros permitidos.
-- `app/views`: telas Rails com formulários e proteção CSRF.
-- `db/migrate`: criação das tabelas e restrições.
-- `db/seeds.rb`: registros fictícios de demonstração.
+- `app/models`: Category and Miniature models with validation.
+- `app/controllers`: operations and filters using permitted parameters.
+- `app/views`: Rails pages and forms with CSRF protection.
+- `db/migrate`: database tables and constraints.
+- `db/seeds.rb`: fictional demonstration records.
 
-## Estado desta entrega
+## Delivery status
 
-Código inicial preparado sem execução local, pois Ruby e Bundler não estão instalados no ambiente de autoria. Nenhum teste foi adicionado ou executado. Após instalar as dependências, versione o `Gemfile.lock` produzido para registrar as versões resolvidas.
+This initial code has not been run locally because Ruby and Bundler are not installed in the authoring environment. No tests have been added or run. After installing dependencies, commit the generated `Gemfile.lock` to record the resolved versions.
 
-Este projeto é uma base de laboratório. Antes de hospedar, configure HTTPS, `SECRET_KEY_BASE`, `APP_HOSTS`, credenciais de edição e persistência do banco. Não use o servidor de desenvolvimento como hospedagem pública. Não foram adicionados workflows nem alteradas configurações de segurança da organização.
+This is a laboratory application. Before hosting it, configure HTTPS, `SECRET_KEY_BASE`, `APP_HOSTS`, editor credentials, and persistent database storage. Do not expose the development server as a public hosting service. No workflows were added and no organization security settings were changed.
 
-Referência: [Guia oficial do Rails 8.1](https://guides.rubyonrails.org/v8.1/getting_started.html).
+Reference: [Official Rails 8.1 guide](https://guides.rubyonrails.org/v8.1/getting_started.html).

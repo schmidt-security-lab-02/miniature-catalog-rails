@@ -27,7 +27,7 @@ class MiniaturesController < ApplicationController
   def create
     @miniature = Miniature.new(miniature_params)
     if @miniature.save
-      redirect_to @miniature, notice: "Miniatura cadastrada."
+      redirect_to @miniature, notice: "Miniature created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -35,7 +35,7 @@ class MiniaturesController < ApplicationController
 
   def update
     if @miniature.update(miniature_params)
-      redirect_to @miniature, notice: "Miniatura atualizada."
+      redirect_to @miniature, notice: "Miniature updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -43,7 +43,7 @@ class MiniaturesController < ApplicationController
 
   def destroy
     @miniature.destroy!
-    redirect_to miniatures_path, notice: "Miniatura removida.", status: :see_other
+    redirect_to miniatures_path, notice: "Miniature removed.", status: :see_other
   end
 
   private

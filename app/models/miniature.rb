@@ -1,5 +1,5 @@
 class Miniature < ApplicationRecord
-  STATUSES = { "unpainted" => "Sem pintura", "in_progress" => "Em pintura", "painted" => "Pintada" }.freeze
+  STATUSES = { "unpainted" => "Unpainted", "in_progress" => "In progress", "painted" => "Painted" }.freeze
   belongs_to :category
   validates :name, presence: true, length: { maximum: 120 }
   validates :manufacturer, :universe, :scale, length: { maximum: 100 }

@@ -1,4 +1,4 @@
 <%= form_with model: category, class: "editor" do |form| %>
   <% if category.errors.any? %><div role="alert" class="errors"><%= category.errors.full_messages.join(". ") %></div><% end %>
-  <label>Nome<%= form.text_field :name, required: true, maxlength: 80 %></label><label>Descrição<%= form.text_area :description, rows: 4, maxlength: 500 %></label><div class="actions"><%= form.submit "Salvar categoria", class: "button" %><%= link_to "Cancelar", categories_path %></div>
+  <label>Name<%= form.text_field :name, required: true, maxlength: 80 %></label><label>Description<%= form.text_area :description, rows: 4, maxlength: 500 %></label><div class="actions"><%= form.submit "Save category", class: "button" %><%= link_to "Cancel", categories_path %></div>
 <% end %>
