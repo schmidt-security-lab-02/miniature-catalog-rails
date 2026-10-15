@@ -8,5 +8,11 @@ module SecurityLab
       matches = Miniature.where("name = '#{requested_name}'")
       render json: matches
     end
+
+    # Intentionally unsafe: untrusted HTML must be escaped in real views.
+    # This action has no route and exists only for the CodeQL demonstration.
+    def preview
+      render html: params[:description].to_s.html_safe
+    end
   end
 end
