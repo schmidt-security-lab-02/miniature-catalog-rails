@@ -1,0 +1,7 @@
+# Intentional dependency fixture for the Dependabot API lab.
+# This bundle is separate from the Rails application and is not loaded by it.
+source "https://rubygems.org"
+
+group :development, :test do
+  gem "webrick", "= 1.8.1", require: false
+end
