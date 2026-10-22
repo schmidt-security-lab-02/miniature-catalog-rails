@@ -3,5 +3,5 @@
 source "https://rubygems.org"
 
 group :development, :test do
-  gem "webrick", "= 1.8.1", require: false
+  gem "webrick", "1.8.2", require: false
 end
