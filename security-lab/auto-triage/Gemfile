@@ -1,0 +1,5 @@
+# Detection-only fixture. Do not install or execute this bundle.
+# Separate from the Rails application's Gemfile and runtime.
+source "https://rubygems.org"
+
+gem "paratrooper-pingdom", "1.0.0", require: false

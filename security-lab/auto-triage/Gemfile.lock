@@ -1,0 +1,23 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    excon (0.112.0)
+    heroku-api (0.3.23)
+      excon (~> 0.44)
+      multi_json (~> 1.8)
+    multi_json (1.18.0)
+    netrc (0.7.9)
+    paratrooper (1.2.0)
+      heroku-api (~> 0.3)
+      netrc (~> 0.7)
+    paratrooper-pingdom (1.0.0)
+      paratrooper (~> 1.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  paratrooper-pingdom (= 1.0.0)
+
+BUNDLED WITH
+   2.6.9
